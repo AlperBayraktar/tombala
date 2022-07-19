@@ -1,0 +1,36 @@
+body {
+    --card-square-width: 8vw;
+}
+
+.card {
+    display: grid;
+    grid-template-columns: repeat(5, var(--card-square-width));
+    grid-auto-rows: var(--card-square-width);
+    column-gap: 0.8vw;
+    row-gap: 0.8vw;
+}
+
+.card-square {
+    border-radius: 5px;
+}
+
+.card-square {
+    width: var(--card-square-width);
+    height: var(--card-square-width);
+    line-height: var(--card-square-width);
+}
+
+.card-square-number {
+    color: #fff;
+    font-size: 2rem;
+    text-align: center;
+    margin: 0;
+}
+
+.card-square-number {
+    font-family: "Roboto Slab", serif;
+}
+
+.card {
+    margin-right: 2vw;
+}
