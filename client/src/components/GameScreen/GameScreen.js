@@ -6,11 +6,13 @@ import UserSVG from "./img/user.svg";
 import NumbersSVG from "./img/numbers.svg";
 import CinkosSVG from "./img/bubble-chart-fill.svg";
 
-import GameContextProvider from "./GameContext";
 import GameContext from "./GameContext";
+import io from "socket.io-client";
+
+const socket = io.connect();
 
 export default function GameScreen() {
-    const context = useContext(GameContext);
+    const { context, setContext } = useContext(GameContext);
 
     return (
         <div className="game-screen">

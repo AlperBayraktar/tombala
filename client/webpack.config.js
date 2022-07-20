@@ -12,13 +12,25 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
+
                 use: {
                     loader: "babel-loader",
                 },
             },
             {
+                test: /\.svg$/,
+                loader: "file-loader",
+                options: {
+                    name: "[name].[ext]?[hash:8]",
+                },
+            },
+            {
                 test: /\.css$/,
                 use: [{ loader: "style-loader" }, { loader: "css-loader" }],
+            },
+            {
+                test: /\.svg$/,
+                use: [],
             },
         ],
     },

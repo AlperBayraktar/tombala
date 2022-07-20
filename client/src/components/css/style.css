@@ -52,7 +52,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Amatic SC";
+    font-family: "Amatic SC", cursive;
     font-weight: 500;
 }
 
@@ -63,7 +63,7 @@ button,
 li,
 textarea,
 small {
-    font-family: "Montserrat";
+    font-family: "Montserrat", sans-serif;
     font-weight: 500;
 }
 
@@ -78,7 +78,7 @@ p {
 }
 
 .form-title {
-    font-family: "Amatic SC";
+    font-family: "Amatic SC", cursive;
     font-size: 2.2rem;
     text-align: center;
 }
@@ -88,7 +88,7 @@ p {
 }
 
 .form-group-title {
-    font-family: Montserrat !important;
+    font-family: "Montserrat", Verdana, Geneva, Tahoma, sans-serif;
     margin-bottom: 5px;
 }
 
@@ -124,7 +124,7 @@ textarea:focus {
 
 /* Buttons */
 
-.btn {
+button {
     padding: 0.6rem 1.2rem;
     font-size: 1rem;
     font-weight: 600;
@@ -135,7 +135,7 @@ textarea:focus {
     transition: 1s;
 }
 
-.btn:hover {
+button:hover {
     cursor: pointer;
     border: 1px solid var(--blue);
     background-color: var(--blue);
