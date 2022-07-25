@@ -1,0 +1,162 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+        Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Colors */
+
+:root {
+    --dark-bg: #011a27;
+
+    --text-blue: #7495f0;
+    --blue: #13678a;
+    --lightblue: #1885b4;
+
+    --dark-gray: #010c13;
+
+    --text-gray: #ece8e8;
+    --text-dark-gray: #d1cbcb;
+
+    --white: #fff;
+}
+
+small {
+    color: var(--text-gray);
+}
+body {
+    color: var(--text-gray);
+    background: var(--dark-bg);
+}
+
+/* Fonts */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Roboto Slab", serif;
+}
+
+.title {
+    font-family: "Amatic SC", cursive;
+    text-align: center;
+}
+
+p,
+li,
+ul,
+div,
+small,
+button,
+input {
+    font-family: "Montserrat", sans-serif;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.25rem;
+}
+
+/* Links */
+
+.link {
+    color: var(--text-blue);
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+.link:hover {
+    color: var(--lightblue);
+    cursor: pointer;
+}
+
+/* Buttons */
+.btn {
+    font-size: 16px;
+    padding: 12px 30px;
+    border-radius: 5px;
+
+    transition: 0.5s;
+    color: var(--text-gray);
+
+    outline: 0;
+    background-color: var(--blue);
+    border-color: var(--blue);
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: var(--lightblue);
+}
+
+.rounded-btn {
+    border-radius: 3rem;
+    border: none !important;
+}
+
+/* Inputs */
+
+.input {
+    padding: 10px;
+    font-size: 15px;
+    outline: 0;
+    border: 1px solid var(--blue);
+    border-radius: 3px;
+    transition: 0.5s;
+    background-color: #05151f;
+    color: var(--text-gray);
+}
+
+.input:focus {
+    border-color: var(--lightblue);
+}
+
+/* Forms */
+.form {
+    width: 100%;
+}
+
+.form-title {
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-group * {
+    width: 100%;
+}
+
+.form-group-title {
+    margin: 0 0 4px 0;
+}
+
+/* Containers */
+
+.container {
+    background-color: var(--dark-gray);
+    padding: 12px 32px;
+    border-radius: 8px;
+}
+
+/* Code for react-tabs */
+.react-tabs__tab {
+    border: none !important;
+    outline: none !important;
+}
+
+/* Title */
+.tombala-logo {
+    font-size: 5rem;
+    margin: 3rem auto;
+}

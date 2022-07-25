@@ -1,54 +1,105 @@
-<h1 align="center">Tombala!</h1>
+# Tombala
 
-A tombala game made with React, Express and Socket.io.
+![image](https://user-images.githubusercontent.com/85285027/180843689-7071c87c-e0e1-48a1-9f2c-61ba85bc8756.png)
 
-<h2 align="center">How to run?</h2>
+A tombala game created with [NextJS](https://nextjs.org/), [PostgreSQL](https://www.postgresql.org/), [Socket.IO](https://socket.io/)
 
-This project is currently in development. So there may be problems in this section.
+[](https://img.shields.io/badge/license-Apache-blue)
 
-## DB
+## Color Reference
 
--   This project uses PostgreSQL as db. Before running the project, create a database called `tombala` and run these commands:
+| Color     | Hex                                                              |
+| --------- | ---------------------------------------------------------------- |
+| dark-bg   | ![#011a27](https://via.placeholder.com/10/011a27?text=+) #0a192f |
+| text-blue | ![#7495f0](https://via.placeholder.com/10/7495f0?text=+) #7495f0 |
+| blue      | ![#13678a](https://via.placeholder.com/10/13678a?text=+) #13678a |
+| lightblue | ![#1885b4](https://via.placeholder.com/10/1885b4?text=+) #1885b4 |
+| dark-gray | ![#010c13](https://via.placeholder.com/10/010c13?text=+) #010c13 |
+| text-gray | ![#ece8e8](https://via.placeholder.com/10/ece8e8?text=+) #ece8e8 |
+| text-gray | ![#d1cbcb](https://via.placeholder.com/10/d1cbcb?text=+) #d1cbcb |
+| white     | ![#fff](https://via.placeholder.com/10/d1cbcb?text=+) #fff       |
+
+## Features
+
+-   Currently, you can create a lobby. When you create a lobby:
+    -   App inserts player data in players table
+    -   And creates a lobby by
+        -   connecting socket to a room
+        -   and creating a new lobby in table
+
+## Environment Variables
+
+-   `PSQL_USER`:
+
+    -   string
+    -   default value is "postgres"
+
+-   `PGSQL_PASSWORD`:
+
+    -   string
+    -   must be provided
+
+-   `PGSQL_HOST`:
+
+    -   string
+    -   default value is "localhost"
+
+-   `PSQL_PORT`:
+    -   integer
+    -   default value is 5432
+
+## Install & Run
+
+### Setup DB
+
+#### Create db and tables
+
+-   This project uses PostgreSQL as db. Create a database named `tombala` and then run these commands:
 
 ```bash
-# Don't forget to set username (you can use 'postgres' as user, postgres has every permission)
+# Don't forget to set username ( 'postgres' can be used )
 psql -U username
-# After providing the password for user, run this (don't forget to set path):
-\i path_to_your_pg/setup.sql_file
+# Select database
+\c tombala
+# Run your db setup
+\i path_to_your_pg/dbSetup.sql_file
 ```
 
--   Your database is ready. Now you can look at [frontend](#frontend) and [backend](#backend) sections to run website.
+#### Create .env in root of project
 
-## Frontend
+Don't forget .env file. Required values are specified above.
 
--   Bundle React app with webpack:
+### Clone the repo:
 
-```
-cd ./client/
-npm run dev
-```
-
-This will bundle React app and put it to `client/static/bundled/bundled.js`. Express will look for files in `client/static` folder to handle static files.
-
-After running webpack, you can run express server. Look at [backend section](#backend) for it.
-
--   Changes happen to React app will not be reactive on Express server, you have to wait for webpack to bundle with changed files and then reload page manually. But running it on localhost:3000 using react-scripts will make it reactive without needing to reload page to see changes.
-
--   When you run it in localhost:3000, you will be able to view ui reactively, but you can't communicate with Express since there is no CORS
-    settings.
-
--   For running in localhost:3000:
-
-```
-cd ./client/
-npm start
+```bash
+git clone https://github.com/AlperBayraktar/tombala.git
+cd ./tombala
 ```
 
-## Backend
+### Install dependencies with npm
 
-```
-cd ./backend/
-npm run dev
+```bash
+  npm install
 ```
 
--   You are ready! Project is running on localhost:8080 now.
+### Run project
+
+```bash
+ npm run dev
+```
+
+#### 🎉Your app is now ready on port 3000!🎉
+
+## Tech Stack
+
+**Client:** [React](https://reactjs.org/) ( [NextJS](https://nextjs.org/) ), [Socket.IO](https://socket.io/)
+
+**Server:** [NextJS](https://nextjs.org/), [PostgreSQL](https://www.postgresql.org/), [Socket.IO](https://socket.io/)
+
+## Authors
+
+-   [Alper Bayraktar](https://www.github.com/AlperBayraktar)
+
+## License
+
+[![APACHE LICENSE](https://img.shields.io/badge/license-Apache-blue)](https://choosealicense.com/licenses/apache-2.0/)

@@ -1,0 +1,6 @@
+.page_container {
+    width: 70%;
+    margin: 2.5rem auto;
+    padding: 2.5rem 2rem;
+    outline: 1px solid grey;
+}
