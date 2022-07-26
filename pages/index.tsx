@@ -23,9 +23,9 @@ const Home = () => {
     const socket: Socket | null = useContext(SocketContext);
 
     useEffect(() => {
-        socket?.on(socketProcesses.MSG, alert);
-        socket?.on(socketProcesses.ERR, alert);
-        socket?.on(socketProcesses.SUCCESS, alert);
+        socket?.on(socketProcesses.MSG, console.log);
+        socket?.on(socketProcesses.ERR, console.log);
+        socket?.on(socketProcesses.SUCCESS, console.log);
     }, [socket]);
 
     return (

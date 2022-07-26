@@ -1,5 +1,5 @@
 // Socket
-import { Server } from "socket.io";
+import { Server, Socket } from "socket.io";
 import socketProcesses from "../../lib/socketProcesses";
 
 // DB
@@ -21,7 +21,7 @@ const SocketHandler = (req: NextApiRequest, res: NextApiResponseServerIO) => {
         const io = new Server(res.socket.server);
         res.socket.server.io = io;
 
-        io.on("connection", (socket) => {
+        io.on("connection", (socket: Socket) => {
             socket.on(
                 socketProcesses.CREATE_LOBBY,
                 async ({ nickname, lobbyName }) => {
@@ -31,14 +31,11 @@ const SocketHandler = (req: NextApiRequest, res: NextApiResponseServerIO) => {
                     console.log(
                         `Request to create a game lobby with name: ${lobbyName}`
                     );
-
                     // TODO: MAKE nickname AND lobbyName'S LENGTH CONTROL HERE
-
                     // ==========================================
                     // Set room name
                     // ==========================================
                     const roomName = `${socketProcesses.LOBBY_PREFIX}${lobbyName}`;
-
                     console.log("rm");
                     console.log(roomName);
 
@@ -65,14 +62,13 @@ const SocketHandler = (req: NextApiRequest, res: NextApiResponseServerIO) => {
                     // ==========================================
                     const password: number =
                         Math.floor(Math.random() * 9999) + 1;
-
                     console.log("ps");
                     console.log(password);
 
                     // ==========================================
                     // Run db queries to create lobby
                     // ==========================================
-                    let shouldCreate: boolean = true;
+                    let shouldCreate = true;
 
                     // Create player
                     const createPlayerQueryData: string[] = [
@@ -87,7 +83,6 @@ const SocketHandler = (req: NextApiRequest, res: NextApiResponseServerIO) => {
                             if (error) shouldCreate = false;
                         }
                     );
-
                     // Create lobby
                     const createLobbyQueryData: string[] = [
                         socket.id,
@@ -101,26 +96,16 @@ const SocketHandler = (req: NextApiRequest, res: NextApiResponseServerIO) => {
                         createLobbyQueryData,
                         (error: any, result: any) => {
                             if (error) {
-                                if (error.code === "23505") {
-                                    io.to(socket.id).emit(
-                                        socketProcesses.ERR,
-                                        socketProcesses.ERRORS.LOBBY_EXISTS
-                                    );
-                                    shouldCreate = false;
-                                    return;
-                                } else {
-                                    io.to(socket.id).emit(
-                                        socketProcesses.ERR,
-                                        socketProcesses.ERRORS
-                                            .UNKNOWN_LOBBY_CREATION_ERROR
-                                    );
-                                    shouldCreate = false;
-                                    return;
-                                }
+                                io.to(socket.id).emit(
+                                    socketProcesses.ERR,
+                                    socketProcesses.ERRORS
+                                        .UNKNOWN_LOBBY_CREATION_ERROR
+                                );
+                                shouldCreate = false;
+                                return;
                             }
                         }
                     );
-
                     // Join socket and send message
                     if (shouldCreate) {
                         socket.join(roomName);
