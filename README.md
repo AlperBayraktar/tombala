@@ -50,6 +50,13 @@ A tombala game created with [NextJS](https://nextjs.org/), [PostgreSQL](https://
 
 ## Install & Run
 
+### Clone the repo:
+
+```bash
+git clone https://github.com/AlperBayraktar/tombala.git
+cd ./tombala
+```
+
 ### Setup DB
 
 #### Create db and tables
@@ -68,13 +75,6 @@ psql -U username
 #### Create .env in root of project
 
 Don't forget .env file. Required values are specified above.
-
-### Clone the repo:
-
-```bash
-git clone https://github.com/AlperBayraktar/tombala.git
-cd ./tombala
-```
 
 ### Install dependencies with npm
 
