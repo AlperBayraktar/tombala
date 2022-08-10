@@ -1,4 +1,4 @@
 -- Run this file to clean all tables in db ( 'tombala' )
 
-DELETE FROM players;
-DELETE FROM lobbies;
+DELETE FROM players CASCADE;
+DELETE FROM lobbies CASCADE;

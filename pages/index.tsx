@@ -22,10 +22,33 @@ import "react-tabs/style/react-tabs.css";
 const Home = () => {
     const socket: Socket | null = useContext(SocketContext);
 
+    // Handle messages
     useEffect(() => {
-        socket?.on(socketProcesses.MSG, console.log);
-        socket?.on(socketProcesses.ERR, console.log);
-        socket?.on(socketProcesses.SUCCESS, console.log);
+        const ERRS = socketProcesses.ERRORS;
+
+        socket?.on(socketProcesses.ERR, (err: string) => {
+            console.log(err);
+
+            if (err === ERRS.ALREADY_IN_A_LOBBY) {
+                alert("Zaten bir lobidesiniz.");
+            } else if (err == ERRS.UNKNOWN_ERROR) {
+                alert("Bilinmeyen bir hata oluştu.");
+            } else if ((err = ERRS.CONTROL_FIELD_LENGTHS)) {
+                alert("Lütfen boş alan bırakmayın.");
+            }
+        });
+
+        //     switch (err) {
+        //         case ERRS.ALREADY_IN_A_LOBBY:
+        //             alert("Zaten bir lobidesiniz.");
+
+        //         case ERRS.UNKNOWN_ERROR:
+        //             alert("Bilinmeyen bir hata oluştu.");
+
+        //         case ERRS.CONTROL_FIELD_LENGTHS:
+        //             alert("Lütfen boş alan bırakmayın.");
+        //     }
+        // });
     }, [socket]);
 
     return (
@@ -38,7 +61,7 @@ const Home = () => {
                 </TabList>
 
                 <TabPanel>
-                    <JoinLobbyForm />
+                    <JoinLobbyForm socket={socket} />
                 </TabPanel>
 
                 <TabPanel>

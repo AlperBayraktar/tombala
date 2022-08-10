@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
+import { useRouter } from "next/router";
 import { Socket } from "socket.io-client";
-import socketEventTypes from "../../lib/socketProcesses";
+import socketProcesses from "../../lib/socketProcesses";
+import GameDataContext from "../../context/GameDataContext";
+import { getDefaultGameData } from "../../lib/gameUtils";
 
 interface CreateLobbyFormProps {
     socket: Socket | null;
@@ -9,9 +12,34 @@ interface CreateLobbyFormProps {
 const CreateLobbyForm = ({ socket }: CreateLobbyFormProps) => {
     const [nickname, setNickname] = useState<string>("");
     const [lobbyName, setLobbyName] = useState<string>("");
+    const { gameData, setGameData } = useContext(GameDataContext);
+    const router = useRouter();
+
+    useEffect(() => {
+        socket?.on(socketProcesses.MSG, console.log);
+
+        socket?.on(socketProcesses.SUCCESS, (msg: string) => {
+            switch (msg) {
+                case socketProcesses.SUCCESS_MSGS.CREATED_LOBBY:
+                    alert("Lobi oluşturuldu.");
+            }
+        });
+
+        socket?.on(
+            socketProcesses.EVT.GET_LOBBY_DATA_AFTER_CREATION,
+            (data) => {
+                setGameData({
+                    ...data,
+                    ...getDefaultGameData(),
+                    isHost: true,
+                });
+                router.push("/game");
+            }
+        );
+    }, [socket]);
 
     const createLobby = () => {
-        socket?.emit(socketEventTypes.CREATE_LOBBY, {
+        socket?.emit(socketProcesses.EVT.CREATE_LOBBY, {
             nickname,
             lobbyName,
         });

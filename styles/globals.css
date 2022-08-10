@@ -14,17 +14,23 @@ body {
 
 :root {
     --dark-bg: #011a27;
-
-    --text-blue: #7495f0;
+    --dark-gray: #010c13;
     --blue: #13678a;
     --lightblue: #1885b4;
-
-    --dark-gray: #010c13;
+    --white: #fff;
 
     --text-gray: #ece8e8;
+    --text-black: #000;
     --text-dark-gray: #d1cbcb;
+    --text-blue: #7495f0;
 
-    --white: #fff;
+    /* Square Colors */
+    --square-red: #f03c3c;
+    --square-green: #268d23;
+    --square-orange: #9e6804;
+    --square-purple: #812681;
+    --square-yellow: #838f1d;
+    --square-blue: #074ed3;
 }
 
 small {
@@ -89,8 +95,29 @@ p {
     color: var(--text-gray);
 
     outline: 0;
+    border: 0;
+
     background-color: var(--blue);
-    border-color: var(--blue);
+}
+._3d {
+    box-shadow: 6px 6px 1px 1px var(--dark-gray);
+}
+
+._3d,
+._3d-thicker {
+    transition: 0.5s;
+}
+
+._3d:hover {
+    box-shadow: 5px 5px 6px 6px var(--dark-gray);
+}
+
+._3d-thicker {
+    box-shadow: 10px 10px 1px 1px var(--dark-gray);
+}
+
+._3d-thicker:hover {
+    box-shadow: 8px 8px 6px 6px var(--dark-gray);
 }
 
 .btn:hover {
@@ -159,4 +186,5 @@ p {
 .tombala-logo {
     font-size: 5rem;
     margin: 3rem auto;
+    width: 100% !important;
 }
