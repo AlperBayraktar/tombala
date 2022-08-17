@@ -4,49 +4,11 @@
 
 A tombala game created with [NextJS](https://nextjs.org/), [PostgreSQL](https://www.postgresql.org/), [Socket.IO](https://socket.io/)
 
-[](https://img.shields.io/badge/license-Apache-blue)
-
-## Color Reference
-
-| Color     | Hex                                                              |
-| --------- | ---------------------------------------------------------------- |
-| dark-bg   | ![#011a27](https://via.placeholder.com/10/011a27?text=+) #0a192f |
-| text-blue | ![#7495f0](https://via.placeholder.com/10/7495f0?text=+) #7495f0 |
-| blue      | ![#13678a](https://via.placeholder.com/10/13678a?text=+) #13678a |
-| lightblue | ![#1885b4](https://via.placeholder.com/10/1885b4?text=+) #1885b4 |
-| dark-gray | ![#010c13](https://via.placeholder.com/10/010c13?text=+) #010c13 |
-| text-gray | ![#ece8e8](https://via.placeholder.com/10/ece8e8?text=+) #ece8e8 |
-| text-gray | ![#d1cbcb](https://via.placeholder.com/10/d1cbcb?text=+) #d1cbcb |
-| white     | ![#fff](https://via.placeholder.com/10/d1cbcb?text=+) #fff       |
-
 ## Features
 
--   Currently, you can create a lobby. When you create a lobby:
-    -   App inserts player data in players table
-    -   And creates a lobby by
-        -   connecting socket to a room
-        -   and creating a new lobby in table
-
-## Environment Variables
-
--   `PSQL_USER`:
-
-    -   string
-    -   default value is "postgres"
-
--   `PGSQL_PASSWORD`:
-
-    -   string
-    -   must be provided
-
--   `PGSQL_HOST`:
-
-    -   string
-    -   default value is "localhost"
-
--   `PSQL_PORT`:
-    -   integer
-    -   default value is 5432
+-   Creating a lobby
+-   Joining to a lobby
+-   'Sayi cek' process
 
 ## Install & Run
 
@@ -72,9 +34,30 @@ psql -U username
 \i path_to_your_pg/dbSetup.sql_file
 ```
 
+-   To copy path of your pg folder in suitable format, you can run pg/copy_path.py. **(Make sure you have clipboard lib installed)**
+
 #### Create .env in root of project
 
-Don't forget .env file. Required values are specified above.
+Don't forget .env file. Required values are:
+
+-   `PGSQL_USER`:
+
+    -   string
+    -   default value is "postgres"
+
+-   `PGSQL_PASSWORD`:
+
+    -   string
+    -   must be provided
+
+-   `PGSQL_HOST`:
+
+    -   string
+    -   default value is "localhost"
+
+-   `PGSQL_PORT`:
+    -   integer
+    -   default value is 5432
 
 ### Install dependencies with npm
 

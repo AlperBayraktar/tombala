@@ -1,0 +1,163 @@
+.gameContent {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.gameContainer {
+    width: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    padding: 12px 32px;
+    border-radius: 8px;
+}
+
+.card {
+    --squareSize: 6rem;
+
+    display: grid;
+    grid-template-columns: repeat(5, var(--squareSize));
+    grid-auto-rows: var(--squareSize);
+    column-gap: 0.8rem;
+    row-gap: 0.8rem;
+    width: 100%;
+    margin-right: 1rem;
+}
+
+.cardSquare {
+    border-radius: 0.3rem;
+    height: var(--squareSize);
+    box-shadow: rgba(163, 152, 152) 0px 1px 1px 0px;
+    transition: 1s;
+}
+
+.cardSquareFoundNumber {
+    background-color: #008000 !important;
+}
+
+.cardSquare,
+.cardSquareNumber {
+    width: var(--squareSize);
+}
+
+.cardSquareNumber {
+    font-size: 1.7rem;
+    line-height: var(--squareSize);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    font-family: roboto slab;
+}
+
+.infoContainer {
+    width: 100%;
+}
+
+.infos {
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    color: var(--text-black);
+    background-color: rgb(214, 230, 230);
+}
+
+.userInfo {
+    font-size: 1.3rem;
+}
+
+.gameHistoryContainer {
+    max-height: 10rem;
+    padding: 0 0 0 30px;
+    overflow-y: scroll;
+}
+
+.gameHistoryElement {
+    font-weight: 500;
+}
+
+/* Response */
+
+@media screen and (max-width: 1024px) {
+    .gameContainer {
+        width: 90%;
+    }
+
+    .infoContainer {
+        padding: 0.5rem 0.75rem;
+    }
+
+    .userInfo,
+    .gameHistoryElement {
+        font-size: 0.85rem !important;
+    }
+
+    .tombala-logo {
+        font-size: 2rem !important;
+    }
+}
+
+@media screen and (max-width: 920px) {
+    .card {
+        --squareSize: 5rem;
+    }
+
+    .cardSquareNumber {
+        font-size: 1.4rem;
+    }
+    .tombala-logo {
+        margin: 1rem !important;
+    }
+}
+
+@media screen and (max-width: 815px) {
+    .card {
+        --squareSize: 4rem;
+    }
+
+    .cardSquareNumber {
+        font-size: 1.2rem;
+    }
+
+    .gameContainer {
+        width: 95%;
+    }
+
+    .infoContainer {
+        padding: 0.4rem 0.6rem;
+    }
+
+    .userInfo,
+    .gameHistoryElement {
+        font-size: 0.6rem !important;
+    }
+
+    .gameHistoryContainer {
+        height: 3.5rem;
+        padding: 0 0 0 20px;
+    }
+
+    .tombala-logo {
+        margin: 1rem !important;
+        font-size: 1.4rem !important;
+    }
+    .lobbyInfoContainer {
+        width: 60% !important;
+    }
+}
+
+@media screen and (max-width: 670px) {
+    .gameContainer {
+        width: 95%;
+    }
+
+    .infoContainer {
+        border-radius: 4px;
+    }
+
+    .gameInfoTitle {
+        margin: 0rem;
+        font-size: 1.2rem;
+    }
+}
