@@ -39,6 +39,7 @@ const JoinLobbyForm = ({ socket }: JoinLobbyFormProps) => {
         });
 
         socket?.on(socketProcesses.EVT.GET_LOBBY_DATA_AFTER_JOINING, (data) => {
+            console.log(data);
             setGameData({ ...data, ...getDefaultGameData(), isHost: false });
         });
 

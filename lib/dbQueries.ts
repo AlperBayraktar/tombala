@@ -23,4 +23,8 @@ export default {
     GET_LOBBY_DATA: "SELECT * FROM lobbies WHERE uuid=$1",
 
     // ================================
+
+    GET_LOBBY_PLAYER_NAMES: "SELECT nickname FROM players WHERE lobby_uuid=$1",
+
+    // ================================
 };

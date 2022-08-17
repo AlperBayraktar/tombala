@@ -12,7 +12,7 @@ interface CreateLobbyFormProps {
 const CreateLobbyForm = ({ socket }: CreateLobbyFormProps) => {
     const [nickname, setNickname] = useState<string>("");
     const [lobbyName, setLobbyName] = useState<string>("");
-    const { gameData, setGameData } = useContext(GameDataContext);
+    const { setGameData } = useContext(GameDataContext);
     const router = useRouter();
 
     useEffect(() => {
