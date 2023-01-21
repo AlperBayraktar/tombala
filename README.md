@@ -1,5 +1,3 @@
-# Tombala
-
 ![image](https://user-images.githubusercontent.com/85285027/180843689-7071c87c-e0e1-48a1-9f2c-61ba85bc8756.png)
 
 A tombala game created with [NextJS](https://nextjs.org/), [PostgreSQL](https://www.postgresql.org/), [Socket.IO](https://socket.io/)
