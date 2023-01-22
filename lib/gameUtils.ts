@@ -9,14 +9,14 @@ export const getDefaultGameData = () => {
     return {
         history: [],
         card: {
-            numbers: getRandomNumbers(),
+            numbers: getRandomCardNumbers(),
             foundNumbers: [],
             cinkosMade: 0,
         },
     };
 };
 
-export const getRandomNumbers = (): number[] => {
+export const getRandomCardNumbers = (): number[] => {
     let cardNumbers = [];
     let leftNumbers = availableNumbers;
 

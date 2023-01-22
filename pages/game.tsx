@@ -19,10 +19,12 @@ const Game: NextPage = () => {
         console.log(gameData);
 
         socket?.on(socketProcesses.EVT.GET_WINNER_DATA, (winnerNickname) => {
-            console.log("winene");
+            console.log("winner:");
+            var historyCopy = gameData.history;
+            historyCopy.push(`Kazanan: ${winnerNickname}`);
             setGameData({
                 ...gameData,
-                history: [gameData.history, `Kazanan: ${winnerNickname}`],
+                history: historyCopy,
             });
         });
         socket?.on(

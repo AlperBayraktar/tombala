@@ -1,4 +1,4 @@
-# This file copies pull path of pg to clipboard.
+# This file copies full path of pg to clipboard.
 # This will help you while running sql files when setting up db.
 
 # NOTE: MAKE SURE YOU HAVE CLIPBOARD LIB. INSTALLED

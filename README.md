@@ -6,7 +6,8 @@ A tombala game created with [NextJS](https://nextjs.org/), [PostgreSQL](https://
 
 -   Creating a lobby
 -   Joining to a lobby
--   'Sayi cek' process
+-   Pull numbers
+-   See lobi info
 
 ## Install & Run
 
@@ -21,22 +22,22 @@ cd ./tombala
 
 #### Create db and tables
 
--   This project uses PostgreSQL as db. Create a database named `tombala` and then run these commands:
+-   This project uses PostgreSQL as db. Create a database with a name you want and run these commands:
 
 ```bash
-# Don't forget to set username ( 'postgres' can be used )
-psql -U username
+# Open a psql user that can update databases
+psql -U _your_username
 # Select database
-\c tombala
+\c your_database_name
 # Run your db setup
 \i path_to_your_pg/dbSetup.sql_file
 ```
 
--   To copy path of your pg folder in suitable format, you can run pg/copy_path.py. **(Make sure you have clipboard lib installed)**
+-   To copy path of your pg folder in a suitable format, you can run pg/copy_path.py. **(Make sure you have clipboard lib installed)**
 
 #### Create .env in root of project
 
-Don't forget .env file. Required values are:
+Don't forget .env file. Values are:
 
 -   `PGSQL_USER`:
 
@@ -54,8 +55,13 @@ Don't forget .env file. Required values are:
     -   default value is "localhost"
 
 -   `PGSQL_PORT`:
+
     -   integer
     -   default value is 5432
+
+-   `PGSQL_DATABASE`:
+    -   string
+    -   default value is "tombala"
 
 ### Install dependencies with npm
 

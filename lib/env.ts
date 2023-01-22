@@ -16,6 +16,11 @@
             - PSQL_PORT:
                 - integer
                 - default value is 5432
+
+                
+            - PSQL_DATABASE:
+                - string
+                - default value is "tombala"
 */
 
 import { load } from "ts-dotenv";
@@ -36,6 +41,10 @@ const env = load({
     PGSQL_PORT: {
         type: Number,
         default: 5432,
+    },
+    PGSQL_DATABASE: {
+        type: String,
+        default: "tombala",
     },
 });
 

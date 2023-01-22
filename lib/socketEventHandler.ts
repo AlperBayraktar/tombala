@@ -112,6 +112,7 @@ export default {
             [socket.id, socket.id, lobbyName, uuid],
             (error: any, result: any) => {
                 if (error) {
+                    console.log("err1");
                     console.log(error);
                     io.to(socket.id).emit(
                         socketProcesses.ERR,
@@ -142,13 +143,14 @@ export default {
         // ==========================================
         // Join socket and send message
         // ==========================================
+        console.log("1");
         if (shouldCreate) {
             socket.join(roomName);
             io.to(socket.id).emit(
                 socketProcesses.SUCCESS,
                 socketProcesses.SUCCESS_MSGS.CREATED_LOBBY
             );
-
+            console.log("1");
             // TODO: This id should be displayed in lobby host's page
             io.to(socket.id).emit(
                 socketProcesses.EVT.GET_LOBBY_DATA_AFTER_CREATION,
@@ -177,6 +179,7 @@ export default {
         const joinedLobbyAmount: number = getJoinedLobbyAmount(socket);
 
         if (joinedLobbyAmount > 0) {
+            console.log("2");
             io.to(socket.id).emit(
                 socketProcesses.ERR,
                 socketProcesses.ERRORS.ALREADY_IN_A_LOBBY
@@ -194,6 +197,7 @@ export default {
             [uuid],
             (error: any, result: any) => {
                 if (error) {
+                    console.log("3");
                     socket.emit(
                         socketProcesses.ERR,
                         socketProcesses.ERRORS.UNKNOWN_ERROR
@@ -202,6 +206,7 @@ export default {
                 }
 
                 if (result.rowCount !== 1) {
+                    console.log("4");
                     socket.emit(
                         socketProcesses.ERR,
                         socketProcesses.ERRORS.LOBBY_DOESNT_EXIST
@@ -221,6 +226,7 @@ export default {
             [socket.id, nickname, uuid],
             (error: any, result: any) => {
                 if (error) {
+                    console.log("5");
                     socket.emit(
                         socketProcesses.ERR,
                         socketProcesses.ERRORS.UNKNOWN_ERROR
@@ -231,9 +237,9 @@ export default {
         );
 
         if (!canJoin) return;
-
+        console.log("6");
         socket.join(`${socketProcesses.LOBBY_PREFIX}${uuid}`);
-
+        console.log("7");
         socket.emit(
             socketProcesses.SUCCESS,
             socketProcesses.SUCCESS_MSGS.JOINED_LOBBY
@@ -248,6 +254,7 @@ export default {
             [uuid],
             (error: any, result: any) => {
                 // TODO: This id should be displayed in lobby host's page
+                console.log("8");
                 io.to(socket.id).emit(
                     socketProcesses.EVT.GET_LOBBY_DATA_AFTER_JOINING,
                     {
@@ -257,7 +264,7 @@ export default {
                         players: result.rows,
                     }
                 );
-
+                console.log("9");
                 io.to(`${socketProcesses.LOBBY_PREFIX}${uuid}`).emit(
                     socketProcesses.EVT.NOTICE_NEW_PLAYER,
                     { nickname: nickname }

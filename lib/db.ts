@@ -8,7 +8,7 @@ let DB = new Pool({
     password: env.PGSQL_PASSWORD,
     host: env.PGSQL_HOST,
     port: env.PGSQL_PORT,
-    database: "tombala",
+    database: env.PGSQL_DATABASE,
 });
 
 export default DB;
