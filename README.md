@@ -7,7 +7,7 @@ A tombala game created with [NextJS](https://nextjs.org/), [PostgreSQL](https://
 -   Creating a lobby
 -   Joining to a lobby
 -   Pull numbers
--   See lobi info
+-   See lobby info
 
 ## Install & Run
 
@@ -33,11 +33,11 @@ psql -U _your_username
 \i path_to_your_pg/dbSetup.sql_file
 ```
 
--   To copy path of your pg folder in a suitable format, you can run pg/copy_path.py. **(Make sure you have clipboard lib installed)**
+-   To copy path of your pg folder in a suitable format, you can run `pg/copy_path.py`. **(Make sure you have clipboard lib installed)**
 
 #### Create .env in root of project
 
-Don't forget .env file. Values are:
+.env values:
 
 -   `PGSQL_USER`:
 
